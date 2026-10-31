@@ -3,117 +3,88 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Coding Club</title>
+    <title>Profile Card</title>
     <style>
-        /* Variables: change a colour here and it changes everywhere */
-        :root {
-            --brand: #d7ea2f;
-            --light: #eef2ff;
-            --dark: #899613;
-            --gap: 16px;
-        }
-
-        /* * = every element */
+        /* width will include padding and border (easier maths!) */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: Georgia, serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            padding: var(--gap);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2f8;
         }
 
-        /* h1 = element selector */
-        h1 {
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
-
-        /* #hero = id selector (only one on the page) */
-        #hero {
-            background: var(--brand);
+        /* sticky = stays at the top while you scroll */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #0eab308f;
             color: white;
+            padding: 14px;
             text-align: center;
-            padding: 32px var(--gap);
-            border-radius: 10px;
         }
 
-        /* .card = class selector (use many times) */
         .card {
+            width: 280px;
+            margin: 24px auto;
             background: white;
-            padding: var(--gap);
-            margin-top: var(--gap);
-            border-radius: 10px;
+            border: 2px solid #14b01f;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 8px;
-        }
-
-        th {
-            background: var(--brand);
+        /* 50% radius = perfect circle */
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #17cb23;
             color: white;
+            font-size: 36px;
+            line-height: 90px;
+            margin: 0 auto 10px;
+        }
+
+        /* fixed height + overflow auto = scroll bar */
+        .bio {
+            height: 80px;
+            overflow: auto;
             text-align: left;
-        }
-
-        th,
-        td {
+            border: 1px solid #ccd;
             padding: 8px;
-            border-bottom: 1px solid #ccd;
+            margin-top: 12px;
+            font-size: 14px;
         }
 
-        input {
-            padding: 6px;
-            margin: 4px 0;
-        }
-
-        button {
-            background: var(--brand);
-            color: white;
+        /* fixed = always at the same place on screen */
+        .fab {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 52px;
+            height: 52px;
             border: 0;
-            padding: 10px 18px;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 50%;
+            background: #650313;
+            font-size: 26px;
         }
     </style>
 </head>
 
 <body>
-    <div id="hero">
-        <h1>Coding Club</h1>
-        <p>Learn. Build. Share.</p>
-    </div>
-    <div class="card">
-        <h2>Upcoming Events</h2>
-        <table>
-            <tr>
-                <th>Event</th>
-                <th>Date</th>
-                <th>Venue</th>
-            </tr>
-            <tr>
-                <td>HTML Workshop</td>
-                <td>12 Nov</td>
-                <td>Lab 1</td>
-            </tr>
-            <tr>
-                <td>Hackathon</td>
-                <td>20 Nov</td>
-                <td>Seminar Hall</td>
-            </tr>
-        </table>
-    </div>
-    <div class="card">
-        <h2>Register</h2>
-        <p>Name: <input type="text" placeholder="Your name"></p>
-        <p>Email: <input type="email" placeholder="you@example.com"></p> <button>Register</button>
-    </div> 
+    <header>My Profile Page</header>
+    <div class="card"> 
+         <div class="avatar">K</div>
+        <h2>krishna pandey</h2>
+        <p>Web Developer in Making</p>
+        <div class="bio"> Hi! I am krishna. I started coding this year. I like making small websites, drawing and listening
+            to music. My goal is to build my own app. This long text is here so that the box shows a scroll bar. Try
+            scrolling it! </div>
+    </div> <button class="fab">+</button>
+</body>
 
 </html>
