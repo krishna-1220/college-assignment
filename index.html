@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CodeLab</title>
+    <title>Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -14,102 +14,110 @@
 
         body {
             font-family: Arial, sans-serif;
-            color: #0fb128;
+            background: #eef2f8;
         }
 
-        /* Navbar: logo left, links + button right */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 24px;
-            background: #09a574;
+        /* The whole page layout, with named areas */
+        .layout {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            grid-template-areas: "head head" "side main" "foot foot";
+            gap: 10px;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        header {
+            grid-area: head;
+            background: #15dc29;
             color: white;
+            padding: 14px;
+            border-radius: 8px;
         }
 
-        nav ul {
-            display: flex;
-            gap: 20px;
-            list-style: none;
+        aside {
+            grid-area: side;
+            background: #dbe5fb;
+            padding: 14px;
+            border-radius: 8px;
         }
 
-        nav a {
+        main {
+            grid-area: main;
+        }
+
+        footer {
+            grid-area: foot;
+            background: #02480b;
             color: white;
-            text-decoration: none;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
         }
 
-        .btn {
-            background: #ce1a9e;
-            border: 0;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: bold;
+        aside li {
+            margin: 8px 0 8px 18px;
         }
 
-        /* Hero: everything in the centre */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* Boxes: as many columns as can fit */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 12px;
-            height: 260px;
-            padding: 16px;
-            text-align: center;
-            background: #10ab62;
-            color: white;
         }
 
-        /* Cards: wrap when there is no space */
-        .cards {
+        /* Flexbox inside each grid box */
+        .item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding: 24px;
+            align-items: center;
+            gap: 10px;
+            background: rgb(209, 164, 164);
+            padding: 16px;
+            border-radius: 10px;
         }
 
-        .card {
-            flex: 1 1 200px;
-            /* grow, shrink, start at 200px */
-            background: #eef2ff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+        .icon {
+            font-size: 28px;
         }
     </style>
 </head>
 
 <body>
-    <nav>
-        <h2>CodeLab</h2>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul> <button class="btn">Sign up</button>
-    </nav>
-    <section class="hero">
-        <h1>Learn Web Development</h1>
-        <p>Start from zero. Build real projects.</p> <button class="btn">Get started</button>
-    </section>
-    <section class="cards"> 
-         <div class="card">
-            <h3>HTML</h3>
-            <p>Build the structure</p>
-        </div>
-        <div class="card">
-            <h3>CSS</h3>
-            <p>Make it beautiful</p>
-        </div>
-        <div class="card">
-            <h3>JavaScript</h3>
-            <p>Make it smart</p>
-        </div>
-        <div class="card">
-            <h3>Git</h3>
-            <p>Save your work</p>
-        </div>
-    </section>
-</body>
+    <div class="layout">
+        <header>
+            <h2>My Dashboard</h2>
+        </header>
+        <aside>
+            <h3>Menu</h3>
+            <ul>
+                <li>Home</li>
+                <li>Reports</li>
+                <li>Settings</li>
+            </ul>
+        </aside>
+        <main>
+            <div class="gallery">
+                <div class="item"><span class="icon">&#128100;</span>
+                    <div><b>120</b><br>Users</div>
+                </div>
+                <div class="item"><span class="icon">&#128176;</span>
+                    <div><b>Rs 45k</b><br>Sales</div>
+                </div>
+                <div class="item"><span class="icon">&#128230;</span>
+                    <div><b>36</b><br>Orders</div>
+                </div>
+                <div class="item"><span class="icon">&#11088;</span>
+                    <div><b>4.8</b><br>Rating</div>
+                </div>
+                <div class="item"><span class="icon">&#128172;</span>
+                    <div><b>18</b><br>Messages</div>
+                </div>
+                <div class="item"><span class="icon">&#9989;</span>
+                    <div><b>92%</b><br>Done</div>
+                </div>
+            </div>
+        </main>
+        <footer>Made with CSS Grid</footer>
+    </div> 
 
 </html>
